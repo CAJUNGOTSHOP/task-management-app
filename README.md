@@ -14,6 +14,16 @@ This is a web-based task management application where users can create, update, 
    cd <project-directory>
    ```
 
+3. Install the dependencies:
+   ```
+   npm install
+   ```
+
+4. Start the application:
+   ```
+   npm start
+   ```
+
 ## User Authentication and Authorization
 
 The application includes user authentication and authorization to ensure that only authorized users can access and modify tasks. Follow these steps to set up user authentication and authorization:

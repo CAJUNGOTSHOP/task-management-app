@@ -124,3 +124,68 @@ footer {
     font-weight: bold;
     color: #333;
 }
+
+/* Styles for user authentication section */
+#user-authentication {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+#user-authentication h2,
+#user-authentication h3 {
+    margin-top: 0;
+}
+
+#user-authentication label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+#user-authentication input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#user-authentication button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#user-authentication button:hover {
+    background-color: #555;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    main {
+        padding: 1rem;
+    }
+
+    #task-form,
+    #task-list,
+    #user-authentication {
+        padding: 0.5rem;
+    }
+
+    #task-form input,
+    #task-form textarea,
+    #task-form select,
+    #user-authentication input {
+        padding: 0.25rem;
+    }
+
+    #task-form button,
+    #user-authentication button {
+        padding: 0.25rem 0.5rem;
+    }
+}
