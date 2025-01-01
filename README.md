@@ -14,38 +14,6 @@ This is a web-based task management application where users can create, update, 
    cd <project-directory>
    ```
 
-3. Install the required dependencies:
-   ```
-   npm install
-   ```
-
-4. Start the development server:
-   ```
-   npm start
-   ```
-
-5. Open your browser and navigate to `http://localhost:3000` to view the application.
-
-## Running Tests
-
-To run tests, use the following command:
-```
-npm test
-```
-
-## Building for Production
-
-To create a production build, use the following command:
-```
-npm run build
-```
-
-This will create a `build` directory with the production-ready files.
-
-## Deployment
-
-To deploy the application, follow the instructions provided by your hosting provider. Ensure that you have set up the necessary environment variables for the application to function correctly.
-
 ## User Authentication and Authorization
 
 The application includes user authentication and authorization to ensure that only authorized users can access and modify tasks. Follow these steps to set up user authentication and authorization:
@@ -66,3 +34,24 @@ The application includes user authentication and authorization to ensure that on
 4. User permissions:
    - Only authenticated users can create, update, and delete tasks.
    - Ensure that you are logged in to access and modify tasks.
+
+## Setting Environment Variables
+
+To set the required environment variables, use the following code snippet:
+
+```python
+import getpass
+import os
+
+for env_var in [
+    "CDP_API_KEY_NAME",
+    "CDP_API_KEY_PRIVATE_KEY",
+]:
+    if not os.getenv(env_var):
+        os.environ[env_var] = getpass.getpass(f"Enter your {env_var}: ")
+
+# Optional: Set network (defaults to base-sepolia)
+os.environ["NETWORK_ID"] = "base-sepolia"  # or "base-mainnet"
+```
+
+This code will prompt you to enter the values for the required environment variables if they are not already set. You can also set the `NETWORK_ID` environment variable to specify the network to use (default is `base-sepolia`).

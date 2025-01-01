@@ -1,3 +1,18 @@
+import getpass from 'getpass';
+import os from 'os';
+
+for (const env_var of [
+    "CDP_API_KEY_NAME",
+    "CDP_API_KEY_PRIVATE_KEY",
+]) {
+    if (!process.env[env_var]) {
+        process.env[env_var] = getpass.getpass(`Enter your ${env_var}: `);
+    }
+}
+
+// Optional: Set network (defaults to base-sepolia)
+process.env["NETWORK_ID"] = "base-sepolia";  // or "base-mainnet"
+
 document.addEventListener('DOMContentLoaded', () => {
     const taskForm = document.querySelector('#task-form form');
     const taskList = document.querySelector('#task-list ul');
@@ -117,4 +132,25 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.removeChild(notification);
         }, 3000);
     }
+
+    function handleExampleQuery() {
+        const exampleQuery = "Send 0.005 ETH to john2879.base.eth";
+        handleAgentExecutorStream(exampleQuery);
+    }
+
+    function handleAgentExecutorStream(query) {
+        const events = agentExecutor.stream(
+            {"messages": [("user", query)]},
+            stream_mode="values",
+        );
+        for (const event of events) {
+            prettyPrintEventMessages(event);
+        }
+    }
+
+    function prettyPrintEventMessages(event) {
+        event["messages"][-1].pretty_print();
+    }
+
+    handleExampleQuery();
 });
