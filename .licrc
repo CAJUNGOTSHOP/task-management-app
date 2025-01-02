@@ -23,5 +23,6 @@
   "author": "Setland34",
 
   // The repository URL for the project
+  // The repository URL is specified here
   "repository": "https://github.com/Setland34/task-management-app"
 }

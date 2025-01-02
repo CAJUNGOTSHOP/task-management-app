@@ -6,7 +6,7 @@ This is a web-based task management application where users can create, update, 
 
 1. Clone the repository:
    ```
-   git clone <repository-url>
+   git clone https://github.com/Setland34/task-management-app
    ```
 
 2. Navigate to the project directory:
@@ -25,6 +25,8 @@ This is a web-based task management application where users can create, update, 
    ```
 
 5. Open your browser and navigate to `http://localhost:3000` to view the application.
+
+Note: The repository URL is specified in the `.licrc` file.
 
 ## Running Tests
 
@@ -135,3 +137,19 @@ To create signed commits in Git, follow these steps:
    ```
 
 This will create a signed commit with the specified message.
+
+## Pushing Local Commits to the Remote Repository
+
+To push your local commits to the remote repository, follow these steps:
+
+1. Ensure you have committed your changes locally using the command:
+   ```
+   git commit -m "Your commit message"
+   ```
+
+2. Push your local commits to the remote repository using the command:
+   ```
+   git push
+   ```
+
+The remote repository URL is specified in the `.licrc` file as `https://github.com/Setland34/task-management-app`.
