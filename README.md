@@ -113,20 +113,6 @@ We would like to thank the following individuals and organizations for their con
 
 Your contributions and support are greatly appreciated!
 
-## Interactive Rebase with `git rebase -i HEAD~<number_of_commits>`
-
-The `git rebase -i HEAD~<number_of_commits>` command is used to interactively rebase the last `<number_of_commits>` commits. This allows you to edit, reorder, squash, or drop commits in your repository. Here are the steps to use this command:
-
-1. Open your terminal and navigate to the root directory of your repository.
-2. Run the command `git rebase -i HEAD~<number_of_commits>`, replacing `<number_of_commits>` with the number of commits you want to rebase.
-3. An interactive editor will open, displaying the list of commits to be rebased. Each commit will be prefixed with a command (e.g., pick, squash, edit).
-4. Modify the commands as needed. For example, you can change `pick` to `squash` to combine commits, or to `edit` to modify a commit message.
-5. Save and close the editor to start the rebase process.
-6. If you chose to edit a commit, make the necessary changes and run `git rebase --continue` to proceed with the rebase.
-7. If you encounter conflicts, resolve them and run `git rebase --continue` to proceed.
-
-This process allows you to clean up your commit history and make it more readable. Be cautious when rebasing, especially if you are working on a shared branch, as it can rewrite commit history.
-
 ## Creating Signed Commits
 
 To create signed commits in Git, follow these steps:
