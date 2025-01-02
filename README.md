@@ -6,7 +6,7 @@ This is a web-based task management application where users can create, update, 
 
 1. Clone the repository:
    ```
-   git clone <repository-url>
+   git clone https://github.com/Setland34/task-management-app
    ```
 
 2. Navigate to the project directory:
@@ -25,6 +25,8 @@ This is a web-based task management application where users can create, update, 
    ```
 
 5. Open your browser and navigate to `http://localhost:3000` to view the application.
+
+Note: The repository URL is specified in the `.licrc` file.
 
 ## Running Tests
 
