@@ -46,19 +46,3 @@ The `git rebase -i HEAD~<number_of_commits>` command is used to interactively re
 
 ## Configuring Git to Sign All Commits with a GPG Key
 To configure Git to sign all commits with a GPG key by default, use the following command:
-# Task Management Application
-
-This is a web-based task management application where users can create, update, and delete tasks. The application includes user authentication and authorization to ensure that only authorized users can access and modify tasks.
-
-## Setup Instructions
-
-1. Clone the repository:
-   ```sh
-   git clone <repository-url>
-   cd <project-directory>
-   npm install
-   npm start
-   npm test
-   npm run build
-   Please replace the conflicting sections in the pull request with the content from the main branch.
-   

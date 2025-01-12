@@ -9,6 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const priority = document.querySelector('#task-priority').value;
         const dueDate = document.querySelector('#task-due-date').value;
 
+        if (!title || !description || !priority || !dueDate) {
+            showNotification('All fields are required.');
+            return;
+        }
+
         const task = {
             id: Date.now(),
             title,
@@ -34,6 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Add notification for task creation
         showNotification(`Task "${task.title}" created with priority "${task.priority}" and due date "${task.dueDate}"`);
+
+        // Save tasks to local storage
+        saveTasksToLocalStorage();
     }
 
     function updateTask(taskId, updatedTask) {
@@ -50,6 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Add notification for task update
                 showNotification(`Task "${updatedTask.title}" updated with priority "${updatedTask.priority}" and due date "${updatedTask.dueDate}"`);
+
+                // Save tasks to local storage
+                saveTasksToLocalStorage();
             }
         });
     }
@@ -62,6 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Add notification for task deletion
                 showNotification(`Task "${taskItem.querySelector('span').textContent}" deleted`);
+
+                // Save tasks to local storage
+                saveTasksToLocalStorage();
             }
         });
     }
@@ -117,4 +131,29 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.removeChild(notification);
         }, 3000);
     }
+
+    function saveTasksToLocalStorage() {
+        const tasks = [];
+        const taskItems = taskList.querySelectorAll('li');
+        taskItems.forEach((taskItem) => {
+            const task = {
+                id: taskItem.dataset.id,
+                title: taskItem.querySelector('span').textContent.split(' - ')[0],
+                description: taskItem.querySelector('span').textContent.split(' - ')[1],
+                priority: taskItem.classList[0],
+                dueDate: taskItem.querySelector('.due-date').textContent
+            };
+            tasks.push(task);
+        });
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
+    function loadTasksFromLocalStorage() {
+        const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        tasks.forEach((task) => {
+            addTask(task);
+        });
+    }
+
+    loadTasksFromLocalStorage();
 });
